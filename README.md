@@ -1,0 +1,1 @@
+# vcoin_wallet
