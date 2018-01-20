@@ -49,5 +49,12 @@ class Client {
 		//return "ok wow";
 	}
 
+
+	function getadminbal()
+	{
+		//return $this->jsonrpc->listaccounts();
+		return $this->jsonrpc->getbalance();
+	}
+
 }
 ?>

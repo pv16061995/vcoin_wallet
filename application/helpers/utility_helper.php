@@ -25,17 +25,17 @@ function project_name()
 
 function wallet_mail()
 {
-	return 'support@wallet.io';
+	return 'info@v-coin.io';
 }
 
 function sending_mail()
 {
-	return 'prateekvermaphp@gmail.com';
+	return 'info@v-coin.io';
 }
 
 function sending_mail_pass()
 {
-	return '!prateek123';
+	return 'vision@123';
 }
 
 function admin_url()

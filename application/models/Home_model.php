@@ -90,6 +90,29 @@ class Home_model extends CI_Model
     }
 
 
+    function getuserscount()
+    {
+        $query = $this->db->get('users');
+         return $query->num_rows();
+    }
+
+
+    function gettxnreqcount()
+    {
+        $query = $this->db->get('transaction');
+         return $query->num_rows();
+    }
+
+    function txnreqenabledisable($id,$status)
+    {
+         $data = array( 
+                'status' => $status
+            );
+
+        $this->db->where('id',$id);
+        $query=$this->db->update('transaction', $data);
+        return $query;
+    }
 
     
 }

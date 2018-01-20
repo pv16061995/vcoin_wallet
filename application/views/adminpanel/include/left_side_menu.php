@@ -3,7 +3,7 @@
              <div class="navbar nav_title" style="border: 0;">
               <!-- <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a> -->
               
-              <a href="<?php echo base_url()?>dashboard" class="site_title">
+              <a href="<?php echo admin_url()?>dashboard" class="site_title">
                 <img src="<?php echo logo_url() ?>" alt="<?php echo project_name();?>" id="desklogo" class="img-circle profile_img" style="background: #2b3f54;">
                  </a>
             </div>

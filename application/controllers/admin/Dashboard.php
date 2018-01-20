@@ -12,6 +12,7 @@ class Dashboard extends CI_Controller
 		$this->load->library('session','Rpc');
 		$this->load->helper('utility_helper');
 		$this->load->model('Home_model');
+		$this->load->model('Auth_model');
 
 		//print_r($this->session->userdata());
 

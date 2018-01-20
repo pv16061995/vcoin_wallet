@@ -31,6 +31,10 @@ class Sendamount extends CI_Controller
         $rpc_port=$this->session->userdata('rpc_port');
 
         $client= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
+        print_r($client->getadminbal());
+
+        die();
+
         $data['user_bal']=$client->getBalance($this->session->userdata['email']);
 		$this->load->view('sendamount',$data); 
     }

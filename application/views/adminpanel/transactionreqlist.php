@@ -86,6 +86,7 @@ $this->load->view('adminpanel/include/top_menu');
       function(data){
      
       $('#txnlist').html(data);
+       $('[data-toggle="tooltip"]').tooltip();   
       $('#datatable-checkbox').dataTable({
         
         });
@@ -93,7 +94,24 @@ $this->load->view('adminpanel/include/top_menu');
     ); 
    }
 
+   function txnreqenabledisable(id,status)
+   {
+      
+      $.post("<?php echo admin_url();?>transactionreqlist/txnreqenabledisable",{
+        id:id,
+        status:status
+      },
+      function(data){
+
+        window.location.reload();
+     
+      }
+    ); 
+   }
+
  </script>
+
+
 
   <style type="text/css">
 @media (min-width: 768px)

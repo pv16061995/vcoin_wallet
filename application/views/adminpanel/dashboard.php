@@ -3,32 +3,58 @@ $this->load->view('adminpanel/include/header');
 $this->load->view('adminpanel/include/left_side_menu');
 $this->load->view('adminpanel/include/top_menu'); 
 ?>
-<!-- <div class="right_col" role="main"></div> -->
+<!--<div class="right_col" role="main"></div> -->
         <!-- page content -->
         <div class="right_col" role="main">
-          <!--   <div class="row tile_count">
-        <?php 
-        $this->load->model('Auth_model');
-        $menu_list = $this->Auth_model->currencylist();
+           <div class="row tile_count">
+        <?php $userscount=$this->Home_model->getuserscount();  ?>
+            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-users"></i></div>
+                  <div class="count"><?php echo $userscount;?></div>
+                  <h3>Total Users</h3>
+                </div>
+              </div>
 
-        foreach ($menu_list as $balancedetail) {
-         
-          $rpc_host=$balancedetail->host;
-          $rpc_user=$balancedetail->user;
-          $rpc_pass=$balancedetail->pass;
-          $rpc_port=$balancedetail->port;
+              <?php 
+              $menu_list = $this->Auth_model->currencylist();
+                    foreach ($menu_list as $menudetail) { 
 
-          $client= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
-          $balance=$client->getBalance($this->session->userdata['email']);
-          ?>
-            <div class="col-md-4 col-sm-6 col-xs-8 tile_stats_count">
-              <span class="count_top"><i class="fa fa-money"></i> <?php echo $balancedetail->name ?> (<?php echo $balancedetail->short_name ?>)</span>
-              <div class="count"><?php echo $balance;?></div>
-          
-            </div>
-          <?php  }   ?>
+              $rpc_host=$menudetail->host;
+              $rpc_user=$menudetail->user;
+              $rpc_pass=$menudetail->pass;
+              $rpc_port=$menudetail->port;
+
+            $client= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
+              ?>
+              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-money"></i></div>
+                  <div class="count"><?php echo $client->getadminbal();?></div>
+                  <h3><?php echo $menudetail->short_name;?></h3>
+                <!--   <p>Lorem ipsum psdea itgum rixt.</p> -->
+                </div>
+              </div>
+              <?php }
+               $txncount=$this->Home_model->gettxnreqcount();  ?>
+              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-paper-plane"></i></div>
+                  <div class="count"><?php echo $txncount;?></div>
+                  <h3>Transaction Requests</h3>
+                </div>
+              </div>
+              <!-- <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-caret-square-o-right"></i></div>
+                  <div class="count">179</div>
+                  <h3>New Sign ups</h3>
+                  <p>Lorem ipsum psdea itgum rixt.</p>
+                </div>
+              </div> -->
+      
             
-          </div> -->
+          </div> 
          
 
          <!--  <div class="row">
@@ -358,3 +384,10 @@ $this->load->view('adminpanel/include/top_menu');
  <?php $this->load->view('adminpanel/include/footer');  ?>
   
 
+<style type="text/css">
+  .count{font-size: 25px !important;}
+  .tile-stats h3 {
+    color: #BAB8B8;
+    margin-top: 36px;
+}
+</style>

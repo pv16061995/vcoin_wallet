@@ -43,6 +43,7 @@ class Transactionreqlist extends CI_Controller
                               <th>Amount in BTC</th>
                               <th>Name</th>
                               <th>Email</th>
+                              <th>Action</th>
                             </tr>
                           </thead>
                           <tbody>';
@@ -59,8 +60,15 @@ class Transactionreqlist extends CI_Controller
                              <td>'.$transaction->trans_address.'</td>
                              <td>'.abs($transaction->amount).'</td>
                              <td>'.$transaction->name.'</td>
-                             <td>'.$transaction->email.'</td>';
-                    $data .='</tr>';
+                             <td>'.$transaction->email.'</td><td>';
+
+                      if($transaction->status=='0')
+                 {
+              $data .='<a class="btn btn-sm btn-success" href="#" data-toggle="Approved" onclick="txnreqenabledisable(\''.$transaction->id.'\',1);"><i class="fa fa-check"></i></a>';
+                  }else{
+              $data .='<a class="btn btn-sm btn-danger" href="#" data-toggle="Disapproved" onclick="txnreqenabledisable(\''.$transaction->id.'\',0);"><i class="fa fa-close"></i></a>';
+                  }
+                    $data .='</td></tr>';
 
                 $i++;
             }
@@ -69,6 +77,27 @@ class Transactionreqlist extends CI_Controller
 
         print_r($data);
 
+    }
+
+    function txnreqenabledisable()
+    {
+        $id=$this->input->post('id');
+        $status=$this->input->post('status');
+         if($status==0)
+          {
+            $sta='disapproved';
+          }else{
+            $sta='approved';
+          }
+
+          if($this->Home_model->txnreqenabledisable($id,$status))
+          {
+            $this->session->set_flashdata('success', 'Transaction request has been '.$sta.' successfully.');
+           // redirect('admin/userdetail');
+          }else{
+            $this->session->set_flashdata('error', 'Error occured while '.$sta.' transaction request!!!');
+           // redirect('admin/userdetail');
+          }
     }
 
     
