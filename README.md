@@ -1,1 +1,1 @@
-# vcoin_wallet
+# wallet_CI

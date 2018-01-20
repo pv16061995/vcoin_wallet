@@ -102,16 +102,14 @@ class Transactionlist extends CI_Controller
     	$status=$this->input->post('status');
     	$email=$this->session->userdata('email');
     	$rpc_host=$this->session->userdata('rpc_host');
-        $rpc_user=$this->session->userdata('rpc_user');
-        $rpc_pass=$this->session->userdata('rpc_pass');
-        $rpc_port=$this->session->userdata('rpc_port');
+      $rpc_user=$this->session->userdata('rpc_user');
+      $rpc_pass=$this->session->userdata('rpc_pass');
+      $rpc_port=$this->session->userdata('rpc_port');
 
         $client= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
-        //$client = new Client('198.187.28.202','bitcoin123','bitcoin123','bitcoin123')
-
+       
         $trans_list=$client->getTransactionList($email);
           $a=array_reverse($trans_list);
-           // print_r($a);
 
     	$data='';
 

@@ -33,20 +33,20 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">E-mail <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="email" name="email"  class="form-control validate[required] col-md-7 col-xs-12" disabled="disabled" value="<?php echo $this->session->userdata('email');?>">
+                          <input type="text" id="email" name="email"  class="form-control col-md-7 col-xs-12" disabled="disabled" value="<?php echo $this->session->userdata('email');?>">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Subject <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="subject" name="subject" class="form-control validate[required] col-md-7 col-xs-12" value="">
+                          <input type="text" id="subject" name="subject" class="form-control col-md-7 col-xs-12" required>
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Message <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <textarea class="form-control validate[required] col-md-7 col-xs-12" name="message" id="message" rows="10"></textarea>
+                          <textarea class="form-control col-md-7 col-xs-12" name="message" id="message" rows="10" required></textarea>
                         </div>
                       </div>
                       
@@ -55,7 +55,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                          
                         
-                          <button type="submit" class="btn btn-success" onclick="return formbtn();">Submit</button>
+                          <button type="submit" class="btn btn-success" id="save">Submit</button>
                 <button class="btn btn-primary" type="reset" onclick="resetfun();">Reset</button>
                         </div>
                       </div>
@@ -71,29 +71,59 @@
         </div>
         <!-- /page content -->
 <?php $this->load->view('include/footer');  ?>
+
+<!--  <script src="https://jqueryvalidation.org/files/lib/jquery.js"></script> -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
   <script type="text/javascript">
 
-      $(document).ready(function(){
-        $("#supportform").validationEngine('attach');
-        setTimeout(function(){ $(".alert").hide(); }, 5000);
-      });
       function resetfun()
-   {
-    window.location.reload();
-   }
+       {
+        window.location.reload();
+       }
 
-      function formbtn()
-      {
 
-          if ($('#supportform').validationEngine('validate')!='')   
-          { 
-            
-            return true;
-          }else{
-            return false;
-            
-          }
+
+       $(document).ready(function() {
+    setTimeout(function(){ $(".alert").hide(); }, 5000);
+    
+    $("#supportform").validate({
+      rules: {
+        
+        subject: {
+          required: true,
+          minlength: 2
+          
+        },
+        message: {
+          required: true,
+          minlength: 2
+        }
+      },
+      messages: {
+        subject: {
+          required: "Please enter subject",         
+          minlength: "Your subject must be at least 2 characters"
+        },
+        message: {
+          required: "Please enter message",
+          minlength: "Your message must be at least 2 characters"
+        }
       }
+    }); 
+  });
   </script>
 
-       
+     
+ <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/css/screen.css">
+
+<style>
+
+
+  label.error
+  {
+    text-shadow:none !important;
+    color: #7d1c1c !important;
+    font-style : normal !important;
+  }
+  </style>

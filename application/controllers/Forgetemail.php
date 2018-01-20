@@ -71,7 +71,7 @@ $message .='<div style="text-align:left; font-size:13px;" class="mobile-center b
 <div style="margin-bottom:20px;">
 <br>
 <b>With Best of Regards</b>,<br>
-<b>'.project_name().'</b> Team<br>
+<b>Team '.project_name().'</b> <br>
 
 </div></div>';
 $message .='<div style="background:#1a1a1a; padding:10px; width:100%; color:#fff; box-sizing: border-box; text-align:center;">

@@ -36,7 +36,7 @@
               <h1><img src="<?php echo logo_url() ?>"></h1>
               <div>
                 <input type="text" class="form-control" placeholder="OTP" id="otp" name="otp" required maxlength="6" 
-onkeypress="if ( isNaN(this.value + String.fromCharCode(event.keyCode) )) return false;" />
+ />
               </div>
               <div>
                 <input type="password" class="form-control" placeholder="New Password" id="newpassword" name="newpassword" required maxlength="16" />
@@ -87,6 +87,10 @@ onkeypress="if ( isNaN(this.value + String.fromCharCode(event.keyCode) )) return
     window.location.reload();
    }
 
+    jQuery.validator.addMethod("numbersonly", function(value, element) {
+  return this.optional(element) || /^[0-9]+$/i.test(value);
+}, "Please enter numbers only"); 
+
   $(document).ready(function() {
     setTimeout(function(){ $(".alert").hide(); }, 5000);
     
@@ -95,7 +99,8 @@ onkeypress="if ( isNaN(this.value + String.fromCharCode(event.keyCode) )) return
         
         otp: {
           required: true,
-          minlength: 6
+          minlength: 6,
+          numbersonly:true
           
         },
         newpassword: {

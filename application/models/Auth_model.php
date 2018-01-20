@@ -312,6 +312,17 @@ class Auth_model extends CI_Model
         return $userid;
     }
 
+    function transaction($btcaddress,$amt,$txnid)
+    {
+        $user_id=$this->session->userdata['user_id'];
+        $data = array('trans_address' => $btcaddress,'amount'=>$amt,'user_id'=>$user_id,'txnid'=>$txnid);
+
+        //$this->db->where('otp',$otp);
+
+        $userid=$this->db->insert('transaction', $data);
+        return $userid;
+    }
+
 }
 
 

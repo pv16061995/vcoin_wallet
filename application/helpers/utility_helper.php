@@ -35,7 +35,12 @@ function sending_mail()
 
 function sending_mail_pass()
 {
-	return '@prateek123';
+	return '!prateek123';
+}
+
+function admin_url()
+{
+	return base_url().'admin/';
 }
 
 
