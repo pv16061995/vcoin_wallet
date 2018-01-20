@@ -16,7 +16,7 @@
 
   </head>
 
-  <body class="login" style="background-image: url('<?php echo login_bg();?>');">
+  <body class="login" style="background-image: url('<?php echo admin_login_bg();?>');">
     <div>
       <!-- <a class="hiddenanchor" id="signup"></a>
       <a class="hiddenanchor" id="signin"></a> -->

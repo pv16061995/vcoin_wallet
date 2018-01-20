@@ -43,5 +43,12 @@ function admin_url()
 	return base_url().'admin/';
 }
 
+function admin_login_bg()
+{
+	return base_url().'assets/images/login-bg.jpg';
+}
+
+
+
 
 ?>
