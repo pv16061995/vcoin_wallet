@@ -163,7 +163,7 @@ $this->load->view('adminpanel/include/top_menu');
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Transction List</h4>
+          <h4 class="modal-title">Transaction List</h4>
         </div>
         <div class="modal-body">
           <div class="row">
@@ -174,8 +174,8 @@ $this->load->view('adminpanel/include/top_menu');
                 <input type="hidden" name="user_email" id="user_email">
                               <select class="form-control" id="liststatus" onchange="gettxndetail();">
                                 <option value="all">All transactions</option>
-                                <option value="send">Send transactions</option>
-                                <option value="receive">Receive transactions</option>
+                                <option value="send">Sent transactions</option>
+                                <option value="receive">Received transactions</option>
                               </select>
                               
                             </div>

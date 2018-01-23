@@ -316,10 +316,15 @@ class Auth_model extends CI_Model
     {
         $user_id=$this->session->userdata['user_id'];
         $data = array('trans_address' => $btcaddress,'amount'=>$amt,'user_id'=>$user_id,'txnid'=>$txnid);
-
-        //$this->db->where('otp',$otp);
-
         $userid=$this->db->insert('transaction', $data);
+        return $userid;
+    }
+
+    function referaluser($email,$refid)
+    {
+        $user_id=$this->session->userdata['user_id'];
+        $data = array('user_id' => $user_id,'email'=>$email,'refer_id'=>$refid);
+        $userid=$this->db->insert('refer_user', $data);
         return $userid;
     }
 

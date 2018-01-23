@@ -29,7 +29,7 @@
                           </div>
                       <?php } ?>
                         <form action="<?php echo base_url()?>getvcn/transaction" method="POST" id="sendform" class="form-horizontal form-label-left">
-                          <img src="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=test" class="img-responsive" style="width: 15%;margin-left: 35%;">
+                          <img src="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=1HSpKB2Xm4kuiurSeDiiqgqH5Q4p539M4c" class="img-responsive" style="width: 15%;margin-left: 35%;">
 
                           <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">BTC Address <span class="required">*</span>

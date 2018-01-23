@@ -31,7 +31,7 @@ class Getvcn extends CI_Controller
     {
         $btcaddress=$this->input->post('btcaddress');
         $amount=$this->input->post('amount');
-        $txnid = substr(hash('sha256', mt_rand() . microtime()), 0, 32);
+        $txnid = 'Ref: '.substr(hash('sha256', mt_rand() . microtime()), 0, 32);
 
         if($this->Auth_model->transaction($btcaddress,$amount,$txnid))
         {

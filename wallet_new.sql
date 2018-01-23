@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 20, 2018 at 04:37 PM
+-- Generation Time: Jan 23, 2018 at 10:28 AM
 -- Server version: 5.7.20-0ubuntu0.16.04.1
 -- PHP Version: 5.6.32-1+ubuntu16.04.1+deb.sury.org+2
 
@@ -115,7 +115,7 @@ CREATE TABLE `currency_list` (
 --
 
 INSERT INTO `currency_list` (`id`, `short_name`, `name`, `host`, `user`, `pass`, `port`, `status`) VALUES
-(1, 'BTC', 'Bitcoin', '98.187.28.202', 'bitcoin123', 'bitcoin@123', '8332', 0),
+(1, 'BTC', 'Bitcoin', '198.187.28.202', 'bitcoin123', 'bitcoin@123', '8332', 0),
 (2, 'LTC', 'LiteCoin', '162.213.252.66', 'test', 'test123', '18332', 1),
 (3, 'INR', 'Indian Rupee', '162.213.252.66', 'test', 'test123', '18332', 1),
 (4, 'Aux', 'American', '162.213.252.66', 'test', 'test123', '18332', 0),
@@ -271,7 +271,32 @@ INSERT INTO `login_detail` (`id`, `user_id`, `ip_address`, `created_date`) VALUE
 (108, 1, '192.168.1.18', '2018-01-19 18:38:11'),
 (109, 1, '::1', '2018-01-19 21:15:46'),
 (110, 1, '::1', '2018-01-20 00:40:35'),
-(111, 1, '::1', '2018-01-20 12:00:49');
+(111, 1, '::1', '2018-01-20 12:00:49'),
+(112, 1, '::1', '2018-01-20 17:19:51'),
+(113, 1, '::1', '2018-01-20 20:31:05'),
+(114, 1, '::1', '2018-01-22 12:45:19');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `refer_user`
+--
+
+CREATE TABLE `refer_user` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `refer_id` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '0',
+  `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `refer_user`
+--
+
+INSERT INTO `refer_user` (`id`, `user_id`, `refer_id`, `email`, `status`, `created_date`) VALUES
+(1, 1, '29664687040c7f2b74c02223395a8ffe', 'prateek@bloque.in', 0, '2018-01-22 14:17:47');
 
 -- --------------------------------------------------------
 
@@ -327,7 +352,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `ip_address`, `pin`, `tfa_status`, `otp`, `tfa_key`, `email_verify_status`, `status`, `kyc_status`, `created_date`, `updated_date`, `last_login`) VALUES
-(1, 'Prateek Verma', 'pv16061995@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '::1', '7c4a8d09ca3762af61e59520943dc26494f8941b', 0, '00b32f12715829b1839505fd1c0d887b46a518e3', 'EKDLKGLR2UPCJOZG', 1, 1, 0, '2018-01-15 17:15:06', '0000-00-00 00:00:00', '2018-01-20 12:00:49'),
+(1, 'Prateek Verma', 'pv16061995@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '::1', '7c4a8d09ca3762af61e59520943dc26494f8941b', 0, '729cf9137f21ea3de9f4866b632f1fd580051402', 'EKDLKGLR2UPCJOZG', 1, 1, 0, '2018-01-15 17:15:06', '0000-00-00 00:00:00', '2018-01-22 12:45:19'),
 (2, 'Pooja', 'pooja591bagh@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '192.168.1.', '7c4a8d09ca3762af61e59520943dc26494f8941b', 1, 'daac18cb967af899293366957ed2828273f10655', 'J4NALQFCBNJIQ4DY', 1, 1, 0, '2018-01-17 11:07:34', '0000-00-00 00:00:00', '2018-01-19 13:18:15'),
 (3, '12245245325', 'nitupanjiyar@gmail.com', 'f43c785e3167800756a61418eff85fe3fe6a9b10', '192.168.1.', '7c4a8d09ca3762af61e59520943dc26494f8941b', 0, '', 'ESFI5W4IHO327TZM', 1, 1, 0, '2018-01-17 11:22:17', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (4, 'Pooja', 'poojabagh591@gmail.cox', '8cb2237d0679ca88db6464eac60da96345513964', '192.168.1.', '7c4a8d09ca3762af61e59520943dc26494f8941b', 0, '', 'YIWWEPFND47VYGBF', 0, 0, 0, '2018-01-17 11:24:37', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -390,6 +415,12 @@ ALTER TABLE `login_detail`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `refer_user`
+--
+ALTER TABLE `refer_user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `transaction`
 --
 ALTER TABLE `transaction`
@@ -429,7 +460,12 @@ ALTER TABLE `fee_charges`
 -- AUTO_INCREMENT for table `login_detail`
 --
 ALTER TABLE `login_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+--
+-- AUTO_INCREMENT for table `refer_user`
+--
+ALTER TABLE `refer_user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `transaction`
 --

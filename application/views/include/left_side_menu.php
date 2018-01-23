@@ -48,6 +48,7 @@
               <li><a href="<?php echo base_url()?>changepin"><i class="fa fa-key"></i> Change Pin</a></li>
               <li><a href="<?php echo base_url()?>support"><i class="fa fa-envelope-o"></i> Support</a></li>
               <li><a href="<?php echo base_url()?>twofactor"><i class="fa fa-lock"></i> 2-factor-Auth</a></li>
+               <li><a href="<?php echo base_url()?>twofactor"><i class="fa fa-share"></i> Refer</a></li>
               <li><a href="<?php echo base_url();?>Logout"><i class="fa fa-sign-out"></i> Log Out</a></li>
              </ul>
            </div>

@@ -23,6 +23,9 @@ class Twofactor extends CI_Controller
 		$ga = new GoogleAuthenticator();
 		$secret = $this->session->userdata('tfa_key');
 		$email=$this->session->userdata('email');
+        
+
+        //$data['qrCodeUrl'] = 'http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl='. $secret;
 		$data['qrCodeUrl'] = $ga->getQRCodeGoogleUrl($email, $secret);
 
        $this->load->view('two-factor',$data); 

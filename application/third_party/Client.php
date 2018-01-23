@@ -56,5 +56,11 @@ class Client {
 		return $this->jsonrpc->getbalance();
 	}
 
+	function getresevedadminbal()
+	{
+		//return $this->jsonrpc->listaccounts();
+		return $this->jsonrpc->getbalance('admin');
+	}
+
 }
 ?>

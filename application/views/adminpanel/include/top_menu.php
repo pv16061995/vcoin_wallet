@@ -17,7 +17,7 @@
                     <li><a href="<?php echo base_url()?>support">Support</a></li>
                     <li><a href="<?php echo base_url()?>twofactor">2-factor-Auth</a></li> -->
                     
-                    <li><a href="<?php echo base_url();?>Logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="<?php echo admin_url();?>Logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
 

@@ -44,11 +44,11 @@
                 <h3>Useful Links</h3>
                  <ul class="nav side-menu">
               <li><a href="<?php echo admin_url();?>userdetail"><i class="fa fa-users"></i> User Detail</a></li>     
-              <li><a href="<?php echo admin_url()?>transactionreqlist"><i class="fa fa-file-text"></i> Transaction List</a></li>
+              <li><a href="<?php echo admin_url()?>transactionreqlist"><i class="fa fa-file-text"></i> Transaction Request List</a></li>
               <!-- <li><a href="<?php echo base_url()?>changepin"><i class="fa fa-key"></i> Change Pin</a></li>
               <li><a href="<?php echo base_url()?>support"><i class="fa fa-envelope-o"></i> Support</a></li>
               <li><a href="<?php echo base_url()?>twofactor"><i class="fa fa-lock"></i> 2-factor-Auth</a></li> -->
-              <li><a href="<?php echo base_url();?>Logout"><i class="fa fa-sign-out"></i> Log Out</a></li>
+              <li><a href="<?php echo admin_url();?>Logout"><i class="fa fa-sign-out"></i> Log Out</a></li>
              </ul>
            </div>
              
